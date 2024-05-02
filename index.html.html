@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CEGTWJZLXY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CEGTWJZLXY');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Car Reservation at Moog NV</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+ 
+    </style>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Company Car Reservation at Moog NV</h1>
+
+    <form id="companyCarReservationForm" onsubmit="composeEmail(); return false;">
+        <!-- Title -->
+        <fieldset>
+            <legend><h4>Reservation Details</h4></legend>
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" required placeholder="Purpose of the trip">
+            </div>
+            <div>
+                <label for="employee">Employee:</label>
+                <input type="text" id="employee" required placeholder="Your name">
+            </div>
+            <div>
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" required placeholder="Destination address">
+            </div>
+            <div>
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" required min="2024-01-01" max="2025-12-31">
+            </div>
+            <div>
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" required min="2024-01-01" max="2025-12-31">
+            </div>
+        </fieldset>
+
+        <!-- Car Type -->
+        <fieldset>
+            <legend><h4>Car Type</h4></legend>
+            <div>
+                <label for="carType">Car Type:</label>
+                <select id="carType" required>
+                    <option value="compact">Compact</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="van">Van</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Additional Requests -->
+        <fieldset>
+            <legend><h4>Additional Requests</h4></legend>
+            <div>
+                <label for="additionalRequests">Additional Requests:</label><br>
+                <textarea id="additionalRequests" rows="2" cols="50" placeholder="Optional:"></textarea>
+            </div>
+        </fieldset>
+<fieldset>
+
+        
+        <button type="submit">Submit Reservation</button>
+</fieldset>
+
+</form>
+    
+    <script>
+        function composeEmail() {
+            const title = document.getElementById('title').value;
+            const employee = document.getElementById('employee').value;
+            const destination = document.getElementById('destination').value;
+            const departureDate = document.getElementById('departureDate').value;
+            const returnDate = document.getElementById('returnDate').value;
+            const carType = document.getElementById('carType').value;
+            const additionalRequests = document.getElementById('additionalRequests').value;
+
+            const subject = `Company Car Reservation: ${departureDate}`;
+            let body = `Company Car Reservation Details:\n\n` +
+                       `Title: ${title}\n\n` +
+                       `Employee: ${employee}\n` +
+                       `Destination: ${destination}\n` +
+                       `Departure Date: ${departureDate}\n` +
+                       `Return Date: ${returnDate}\n` +
+                       `Car Type: ${carType}\n\n` +
+                       `Additional Requests: ${additionalRequests}`;
+
+            const mailtoURL = `mailto:travel_nl@moog.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoURL;
+        }
+    </script>
+</body>
+</html>
