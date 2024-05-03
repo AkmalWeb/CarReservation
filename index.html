@@ -91,16 +91,20 @@
             const additionalRequests = document.getElementById('additionalRequests').value;
 
             const subject = `Company Car Reservation: ${departureDate}`;
-            let body = `Company Car Reservation Details:\n\n` +
+            let body = `Hello Front desk team, I would like to make a reservation for the company car.\n\n` +
+		    
+	    		`Company Car Reservation Details:\n\n` +
                        `Title: ${title}\n\n` +
                        `Employee: ${employee}\n` +
                        `Destination: ${destination}\n` +
                        `Departure Date: ${departureDate}\n` +
                        `Return Date: ${returnDate}\n` +
                        `Car Type: ${carType}\n\n` +
-                       `Additional Requests: ${additionalRequests}`;
+                       `Additional Requests: ${additionalRequests}\n\n` +
+		    	`Could you please respond to my request? Thank you.`;
+		
 
-            const mailtoURL = `mailto:travel_nl@moog.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoURL = `mailto:mfrontdesk@moog.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoURL;
         }
     </script>
